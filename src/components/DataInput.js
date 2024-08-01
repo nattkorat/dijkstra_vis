@@ -1,7 +1,8 @@
 import { useState } from "react";
 import numberToString from "../algorithms/num_to_string";
+import array_to_nodes from "../algorithms/array_to_nodes";
 
-function DataInput() {
+function DataInput({setGraph}) {
   const [number, setNumber] = useState(0);
   const [list, setList] = useState([]);
 
@@ -12,6 +13,10 @@ function DataInput() {
   const handleClick = () => {
     const newList = Array.from({length: number}, (_, index) => numberToString(index + 1))
     setList(newList);
+    setGraph({
+      nodes: array_to_nodes(newList),
+      edges: []
+    })
   }
 
   return (
@@ -22,7 +27,7 @@ function DataInput() {
       <div class="col-auto">
         <button class="btn btn-primary mb-3" onClick={handleClick}>Generate</button>
       </div>
-      <p>{list.length > 0 ? list: ""}</p>
+      {/* <p>{list.length > 0 ? array_to_nodes(list).toString(): ""}</p> */}
     </div>
   
   );

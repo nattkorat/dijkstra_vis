@@ -1,17 +1,17 @@
 import React from "react";
 import Graph from "react-vis-network-graph"
-function Visualization(){
-        const graph = {
-            nodes: [
-              { id: 1, shape: "circle" },
-              { id: 2, shape: "circle" },
-              { id: 3, shape: "circle" },
-            ],
-            edges: [
-              { from: 1, to: 2, id: 1 },
-              { from: 1, to: 3, id: 2 },
-            ],
-          };
+import array_to_nodes from "../algorithms/array_to_nodes";
+
+function Visualization({graph}){
+        // const nodes = array_to_nodes(['A', 'B', 'C', 'D', 'E', 'F'])
+        // const graph = {
+        //     nodes: nodes,
+        //     edges: [
+        //       { from: 0, to: 1},
+        //       { from: 0, to: 2},
+        //     ],
+        //   };
+        const graphKey = JSON.stringify(graph.nodes) + JSON.stringify(graph.edges)
         
           const options = {
             // physics: {
@@ -22,14 +22,10 @@ function Visualization(){
             },
             edges: {
               color: "blue",
-            //   smooth: {
-            //     enabled: true,
-            //     type: "diagonalCross",
-            //     roundness: 0.5,
-            //   },
               width: 2,
+              // Disable the arrows for undirected graph
               arrows: {
-                to: { enabled: false }, // Disable the arrows for undirected graph
+                to: { enabled: false }, 
               },
             },
             height: "650px",
@@ -38,14 +34,14 @@ function Visualization(){
                 background: "blue",
               },
               font: {
-                color: "white",
+                color: "white"
               },
             },
           };
         
           return (
             <div className="container border-end">
-              <Graph graph={graph} options={options} />
+              <Graph key={graphKey} graph={graph} options={options} />
             </div>
           );
 }
