@@ -11,7 +11,7 @@ function DataInput({setGraph}) {
   }
 
   const handleClick = () => {
-    const newList = Array.from({length: number}, (_, index) => numberToString(index + 1))
+    const newList = Array.from({length: number}, (_, index) => numberToString(index))
     setList(newList);
     setGraph({
       nodes: array_to_nodes(newList),
