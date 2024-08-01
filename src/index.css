@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Data-input {
+  text-align: center;
+}
+
+.Data-input-header {
+  padding: 20px;
+  color: #000000;
+}
+
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #000;
+  padding: 10px;
+  text-align: center;
+  color: #000;
+}
+
+input {
+  width: 40px;
+  text-align: center;
+}
+
+.Show-graph-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
