@@ -1,13 +1,9 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-
-const Navigation = () => {
-    return (
-        <Navbar expand="lg" className='bg-body-tertiary'>
-            <Container>
-                <Navbar.Brand>Dijkstra's Algorithm</Navbar.Brand>
-            </Container>
-        </Navbar>
-    );
+export default () => {
+   return (
+       <Navbar className='bg-body-tertiary'>
+            <Navbar.Brand className='p-2'>Dijkstra's Algorithm</Navbar.Brand>
+       </Navbar>
+   );
 }
-export default Navigation;

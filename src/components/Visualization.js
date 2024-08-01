@@ -3,9 +3,9 @@ import Graph from "react-vis-network-graph"
 function Visualization(){
         const graph = {
             nodes: [
-              { id: 1, label: "Node 1", shape: "circle" },
-              { id: 2, label: "Node 2", shape: "circle" },
-              { id: 3, label: "Node 3", shape: "circle" },
+              { id: 1, shape: "circle" },
+              { id: 2, shape: "circle" },
+              { id: 3, shape: "circle" },
             ],
             edges: [
               { from: 1, to: 2, id: 1 },
