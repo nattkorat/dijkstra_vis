@@ -1,8 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import Navigation from './components/NavigationBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import DataInput from './components/DataInput';
 import Visualization from './components/Visualization';
 import CalculateResult from './components/CalculationResult';
@@ -12,7 +11,6 @@ function App() {
   return (
     <div>
       <Navigation />
-
         <Row>
           <Col className='border-end'>
             <DataInput />
