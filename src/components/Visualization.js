@@ -12,10 +12,11 @@ function Visualization(){
           edges: [
             { from: 1, to: 2, label: '1', weight: 1, id: 1 },
             { from: 1, to: 3, label: '4', weight: 4, id: 2 },
-            { from: 4, to: 3, label: '2', weight: 2, id: 3 },
+            { from: 3, to: 4, label: '2', weight: 2, id: 3 },
             { from: 5, to: 1, label: '5', weight: 5, id: 4 },
             { from: 4, to: 1, label: '7', weight: 7, id: 6 },
-            { from: 2, to: 4, label: '10', weight: 10, id: 8 },
+            { from: 2, to: 5, label: '10', weight: 10, id: 8 },
+            { from: 4, to: 2, label: '10', weight: 3, id: 10 },
           ],
           
           // const graph = {
@@ -25,6 +26,7 @@ function Visualization(){
           //     to: edge.to,
           //     label: edge.label,
           //     color: edge.color || 'black',
+          //     arrows: { to: { enabled: true } }, // Show arrow for directed edges
           //   })),
           };
         
@@ -44,7 +46,7 @@ function Visualization(){
             //   },
               width: 2,
               arrows: {
-                to: { enabled: false }, // Disable the arrows for undirected graph
+                to: { enabled: true }, // Disable the arrows for undirected graph
               },
             },
             height: "650px",
