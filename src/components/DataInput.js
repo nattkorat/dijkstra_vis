@@ -1,35 +1,97 @@
-import { useState } from "react";
-import numberToString from "../algorithms/num_to_string";
-import array_to_nodes from "../algorithms/array_to_nodes";
+import React, { useState } from 'react';
 
-function DataInput({setGraph}) {
-  const [number, setNumber] = useState(0);
-  const [list, setList] = useState([]);
+function DataInput() {
+  const [numNodes, setNumNodes] = useState(3); // Default value is 3
+  const [matrix, setMatrix] = useState(
+    Array(3).fill(Array(3).fill(0))
+  );
 
-  const handleChange = (event) => {
-    setNumber(parseInt(event.target.value))
-  }
+  const handleNumNodesChange = (e) => {
+    const newNumNodes = parseInt(e.target.value, 10);
+    setNumNodes(newNumNodes);
+    setMatrix(Array(newNumNodes).fill(Array(newNumNodes).fill(0)));
+  };
 
-  const handleClick = () => {
-    const newList = Array.from({length: number}, (_, index) => numberToString(index))
-    setList(newList);
-    setGraph({
-      nodes: array_to_nodes(newList),
-      edges: []
-    })
-  }
+  const handleInputChange = (row, col, value) => {
+    const newMatrix = matrix.map((rowData, rowIndex) => 
+      rowIndex === row
+        ? rowData.map((cellData, colIndex) =>
+            colIndex === col ? value : cellData
+          )
+        : rowData
+    );
+    setMatrix(newMatrix);
+  };
+
+  const getHeader = (index) => {
+    return String.fromCharCode('A'.charCodeAt(0) + index);
+  };
+
+  const convertMatrixToGraph = () => {
+    const graph = {};
+    matrix.forEach((row, rowIndex) => {
+      const rowHeader = getHeader(rowIndex);
+      graph[rowHeader] = {};
+      row.forEach((cell, colIndex) => {
+        if (cell > 0) {
+          const colHeader = getHeader(colIndex);
+          graph[rowHeader][colHeader] = parseInt(cell, 10);
+        }
+      });
+    });
+    return graph;
+  };
+
+  const handleShowGraph = () => {
+    const graphData = convertMatrixToGraph();
+    console.log("Graph data:", graphData);
+    // Implement further logic to use graphData with other components
+  };
 
   return (
-    <div className="p-3 row g-3">
-      <div class="col">
-        <input type="number" class="form-control" id="numOfNode" placeholder="Number of nodes" onChange={handleChange} />
-      </div>
-      <div class="col-auto">
-        <button class="btn btn-primary mb-3" onClick={handleClick}>Generate</button>
-      </div>
-      {/* <p>{list.length > 0 ? array_to_nodes(list).toString(): ""}</p> */}
+    <div className="Data-input">
+      <header className="Data-input-header">
+        <h2>Data Input Section</h2>
+        <label>
+          Number of nodes:
+          <input
+            type="number"
+            value={numNodes}
+            onChange={handleNumNodesChange}
+            min="1"
+          />
+        </label>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              {Array.from({ length: numNodes }).map((_, index) => (
+                <th key={index}>{getHeader(index)}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {matrix.map((row, rowIndex) => (
+              <tr key={rowIndex}>
+                <th>{getHeader(rowIndex)}</th>
+                {row.map((cell, colIndex) => (
+                  <td key={colIndex}>
+                    <input
+                      type="number"
+                      value={cell}
+                      onChange={(e) =>
+                        handleInputChange(rowIndex, colIndex, e.target.value)
+                      }
+                    />
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <button className="Show-graph-button"onClick={handleShowGraph}>Show graph</button>
+      </header>
     </div>
-  
   );
 }
 
