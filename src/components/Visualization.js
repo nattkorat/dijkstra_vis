@@ -20,7 +20,7 @@ function Visualization({graph}){
               width: 2,
               // Disable the arrows for undirected graph
               arrows: {
-                to: { enabled: false }, // Disable the arrows for undirected graph
+                to: { enabled: true }, // Disable the arrows for undirected graph
               },
             },
             height: "650px",
