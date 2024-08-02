@@ -1,22 +1,17 @@
 import React from "react";
 import Graph from "react-vis-network-graph"
-import array_to_nodes from "../algorithms/array_to_nodes";
-
+import { useEffect, useState } from "react";
 function Visualization({graph}){
-        // const nodes = array_to_nodes(['A', 'B', 'C', 'D', 'E', 'F'])
-        // const graph = {
-        //     nodes: nodes,
-        //     edges: [
-        //       { from: 0, to: 1},
-        //       { from: 0, to: 2},
-        //     ],
-        //   };
-        const graphKey = JSON.stringify(graph.nodes) + JSON.stringify(graph.edges)
-        
+    const [currentGraph, setCurrentGraph] = useState(graph);
+
+    useEffect(() => {
+      setCurrentGraph(graph);
+    }, [graph]);
+          const graphKey = JSON.stringify(currentGraph.nodes) + JSON.stringify(currentGraph.edges)
           const options = {
-            // physics: {
-            //   enabled: false,
-            // },
+            physics: {
+              enabled: true,
+            },
             interaction: {
               navigationButtons: true,
             },
@@ -25,7 +20,7 @@ function Visualization({graph}){
               width: 2,
               // Disable the arrows for undirected graph
               arrows: {
-                to: { enabled: false }, 
+                to: { enabled: false }, // Disable the arrows for undirected graph
               },
             },
             height: "650px",
@@ -41,7 +36,8 @@ function Visualization({graph}){
         
           return (
             <div className="container border-end">
-              <Graph key={graphKey} graph={graph} options={options} />
+              {/* <Graph key={graphKey} graph={graph} options={options} /> */}
+              <Graph key={graphKey} graph={currentGraph} options={options} />
             </div>
           );
 }
