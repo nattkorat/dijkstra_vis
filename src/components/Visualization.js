@@ -2,15 +2,30 @@ import React from "react";
 import Graph from "react-vis-network-graph"
 function Visualization(){
         const graph = {
-            nodes: [
-              { id: 1, label: "Node 1", shape: "circle" },
-              { id: 2, label: "Node 2", shape: "circle" },
-              { id: 3, label: "Node 3", shape: "circle" },
-            ],
-            edges: [
-              { from: 1, to: 2, id: 1 },
-              { from: 1, to: 3, id: 2 },
-            ],
+          nodes: [
+            { id: 1, label: "Node 1", shape: "circle" },
+            { id: 2, label: "Node 2", shape: "circle" },
+            { id: 3, label: "Node 3", shape: "circle" },
+            { id: 4, label: "Node 4", shape: "circle" },
+            { id: 5, label: "Node 5", shape: "circle" },
+          ],
+          edges: [
+            { from: 1, to: 2, label: '1', weight: 1, id: 1 },
+            { from: 1, to: 3, label: '4', weight: 4, id: 2 },
+            { from: 4, to: 3, label: '2', weight: 2, id: 3 },
+            { from: 5, to: 1, label: '5', weight: 5, id: 4 },
+            { from: 4, to: 1, label: '7', weight: 7, id: 6 },
+            { from: 2, to: 4, label: '10', weight: 10, id: 8 },
+          ],
+          
+          // const graph = {
+          //   nodes: nodes,
+          //   edges: edges.map(edge => ({
+          //     from: edge.from,
+          //     to: edge.to,
+          //     label: edge.label,
+          //     color: edge.color || 'black',
+          //   })),
           };
         
           const options = {
