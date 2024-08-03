@@ -22,6 +22,10 @@ function Visualization({graph}){
               arrows: {
                 to: { enabled: true }, // Disable the arrows for undirected graph
               },
+              smooth: {
+                enabled: true,
+                type: 'continuous'
+              }
             },
             height: "650px",
             nodes: {
