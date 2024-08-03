@@ -10,7 +10,10 @@ const matrixToVis = (graphData) => {
         let edge = graphData[node]
         Object.keys(edge).forEach(ed => {
             graph.edges.push({
-                from: node, to: ed, weight: edge[ed]
+                from: node,
+                to: ed,
+                label: String(edge[ed]),
+                weight: edge[ed]
             })
         })
     })
