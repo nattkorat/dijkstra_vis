@@ -63,34 +63,40 @@ function DataInput({setGraph}) {
             min="1"
           />
         </label>
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              {Array.from({ length: numNodes }).map((_, index) => (
-                <th key={index}>{getHeader(index)}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {matrix.map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                <th>{getHeader(rowIndex)}</th>
-                {row.map((cell, colIndex) => (
-                  <td key={colIndex}>
-                    <input
-                      type="number"
-                      value={cell}
-                      onChange={(e) =>
-                        handleInputChange(rowIndex, colIndex, e.target.value)
-                      }
-                    />
-                  </td>
+        <div className="table-container">
+          <div className="source-label">Source</div>
+          <div className="target-label">Target</div>
+          <div className="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  {Array.from({ length: numNodes }).map((_, index) => (
+                    <th key={index}>{getHeader(index)}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {matrix.map((row, rowIndex) => (
+                  <tr key={rowIndex}>
+                    <th>{getHeader(rowIndex)}</th>
+                    {row.map((cell, colIndex) => (
+                      <td key={colIndex}>
+                        <input
+                          type="number"
+                          value={cell}
+                          onChange={(e) =>
+                            handleInputChange(rowIndex, colIndex, e.target.value)
+                          }
+                        />
+                      </td>
+                    ))}
+                  </tr>
                 ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+              </tbody>
+            </table>
+          </div>
+        </div>
         <button className="Show-graph-button"onClick={HandleShowGraph}>Show graph</button>
       </header>
     </div>
