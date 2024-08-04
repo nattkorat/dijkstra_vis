@@ -51,7 +51,6 @@ function CalculateResult({data}) {
             border: '1px solid #ddd',
             padding: '8px',
             backgroundColor: '#f4f4f4',
-            textAlign: 'left',
             textAlign: 'center',
         },
         td: {
@@ -86,7 +85,7 @@ function CalculateResult({data}) {
     
     const { distances } =  result_data;
     const { path } = result_data;
-    const isValid = Object.keys(distances)[0] != 'distances' && Object.keys(distances)[1] != 'path';
+    const isValid = Object.keys(distances)[0] !== 'distances' && Object.keys(distances)[1] !== 'path';
 
     const arrow_string = ' -> ';
     const formatPath = (pathArray) => pathArray.join(arrow_string);
@@ -119,7 +118,7 @@ function CalculateResult({data}) {
                 <tr key={target}>
                     <td style={table_style.td}>{target}</td>
                     <td style={table_style.td}>{distance}</td>
-                    <td style={table_style.td}>{previous != 'Infinity' ? previous : 'None'}</td>
+                    <td style={table_style.td}>{previous !== 'Infinity' ? previous : 'None'}</td>
                 </tr>
                 ))
             ) : (

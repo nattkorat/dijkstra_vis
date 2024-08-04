@@ -61,7 +61,7 @@ export function dijkstra(graph, start) {
         }
         let reserve_node = previous_node[node]
         result["path"][node] = [reserve_node]
-        while(reserve_node != start && reserve_node != Infinity){
+        while(reserve_node !== start && reserve_node !== Infinity){
             reserve_node = previous_node[reserve_node]
             result["path"][node].push(reserve_node)
         }

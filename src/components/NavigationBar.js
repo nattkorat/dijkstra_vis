@@ -1,5 +1,5 @@
 import Navbar from 'react-bootstrap/Navbar';
-export default () => {
+const Navigation = () => {
    return (
        <Navbar className='bg-body-tertiary'>
             <Navbar.Brand className='p-2'>
@@ -8,3 +8,5 @@ export default () => {
        </Navbar>
    );
 }
+
+export default Navigation;
