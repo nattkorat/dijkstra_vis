@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import matrixToVis from '../algorithms/node_normalize';
 
-function DataInput({setGraph}) {
+function DataInput({setGraph, setData}) {
   const [numNodes, setNumNodes] = useState(3); // Default value is 3
   const [matrix, setMatrix] = useState(
     Array(3).fill(Array(3).fill(0))
@@ -48,6 +48,8 @@ function DataInput({setGraph}) {
     console.log("Graph data:", newGraphData);
     setGraph(matrixToVis(newGraphData))
     // Implement further logic to use graphData with other components
+    setData(newGraphData);
+    // Obtain graph data for calculation
   };
 
   return (
