@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import matrixToVis from '../algorithms/node_normalize';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function DataInput({setGraph, setData}) {
   const [numNodes, setNumNodes] = useState(3); // Default value is 3
@@ -55,7 +56,7 @@ function DataInput({setGraph, setData}) {
   return (
     <div className="Data-input">
       <header className="Data-input-header">
-        <h2>Data Input Section</h2>
+        <h2>Data Input</h2>
         <label>
           Number of nodes:
           <input
@@ -99,7 +100,7 @@ function DataInput({setGraph, setData}) {
             </table>
           </div>
         </div>
-        <button className="Show-graph-button"onClick={HandleShowGraph}>Show graph</button>
+        <button className="btn btn-primary Show-graph-button" onClick={HandleShowGraph}>Show graph</button>
       </header>
     </div>
   );

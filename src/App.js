@@ -9,30 +9,19 @@ import CalculateResult from './components/CalculationResult';
 
 
 function App() {
-  const [graph, setGraph] = useState({nodes: [
-    { id: 1, label: "Node " + "A", shape: "circle" },
-    { id: 2, label: "Node " + "B", shape: "circle" },
-    { id: 3, label: "Node " + "C", shape: "circle" },
-  ],
-  edges: [
-    { from: 1, to: 2, label: '1', weight: 1, id: 1 },
-    { from: 1, to: 3, label: '4', weight: 4, id: 2 },
-    { from: 3, to: 4, label: '2', weight: 2, id: 3 },
-    { from: 5, to: 1, label: '5', weight: 5, id: 4 },
-  ]
-  });
+  const [graph, setGraph] = useState({});
   const [data, setData] = useState({distances: {}, path: {}});
   return (
-    <div>
+    <div className='container-fluid'>
       <Navigation />
-        <Row>
-          <Col className='border-end'>
+        <Row className='row'>
+          <Col className='col-scrollable border-end'>
             <DataInput setGraph={setGraph} setData={setData}/>
           </Col>
-          <Col xs={5}>
+          <Col xs={5} className='col-full-height'>
             <Visualization graph={graph}/>
           </Col>
-          <Col >
+          <Col className='col-scrollable'>
             <CalculateResult data={data}/>
           </Col>
         </Row>

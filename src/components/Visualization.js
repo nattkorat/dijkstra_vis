@@ -27,7 +27,7 @@ function Visualization({graph}){
                 type: 'continuous'
               }
             },
-            height: "650px",
+            height: "100%",
             nodes: {
               color: {
                 background: "blue",
@@ -39,8 +39,7 @@ function Visualization({graph}){
           };
         
           return (
-            <div className="container border-end">
-              {/* <Graph key={graphKey} graph={graph} options={options} /> */}
+            <div className="visualization-container border-end">
               <Graph key={graphKey} graph={currentGraph} options={options} />
             </div>
           );

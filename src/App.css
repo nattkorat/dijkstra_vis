@@ -1,38 +1,29 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container-fluid {
+  height: 100vh; /* Full viewport height */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0;
+  margin: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.row {
+  flex: 1; /* Take remaining space after the navigation bar */
+  overflow: hidden; /* Prevent scrolling of the whole row */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.col-scrollable {
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: 100%; /* Ensure the column takes full height */
+  width: 100%;
+}
+
+.col-full-height {
+  height: 100%; /* Ensure the column takes full height */
+  display: flex; /* Use Flexbox for child element */
+  flex-direction: column; /* Ensure child elements stack vertically */
+}
+
+.visualization-container {
+  flex: 1; /* Take up remaining space within the column */
+  overflow: hidden; /* Prevent overflow */
 }
