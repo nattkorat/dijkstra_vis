@@ -75,7 +75,7 @@ function CalculateResult({data}) {
     const [result_data, setCalculation] = useState({distances: {}, path: {}});
 
     const handleChange = (event) => {
-        setInput(event.target.value);
+        setInput(event.target.value.toUpperCase());
     };
     
     const handleSubmit = (event) => {
