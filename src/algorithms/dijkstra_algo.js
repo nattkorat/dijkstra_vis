@@ -1,5 +1,5 @@
 
-function dijkstra(graph, start) {
+export function dijkstra(graph, start) {
     // Create an object to store the shortest distance from the start node to every other node
     let distances = {};
     let previous_node = {}
@@ -50,7 +50,7 @@ function dijkstra(graph, start) {
         }
     }
     //Format data before return
-    result = {
+    var result = {
         "distances": {},
         "path": {}
     }
@@ -80,3 +80,5 @@ const graph = {
 };
 // Example: Find shortest distances from node A to all other nodes in the graph
 console.log(dijkstra(graph, "C")); // Outputs: { A: 0, B: 1, C: 3, D: 4 }
+
+export default dijkstra;

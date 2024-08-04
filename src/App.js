@@ -20,19 +20,20 @@ function App() {
     { from: 3, to: 4, label: '2', weight: 2, id: 3 },
     { from: 5, to: 1, label: '5', weight: 5, id: 4 },
   ]
-  })
+  });
+  const [data, setData] = useState({distances: {}, path: {}});
   return (
     <div>
       <Navigation />
         <Row>
           <Col className='border-end'>
-            <DataInput setGraph={setGraph}/>
+            <DataInput setGraph={setGraph} setData={setData}/>
           </Col>
           <Col xs={5}>
             <Visualization graph={graph}/>
           </Col>
           <Col >
-            <CalculateResult />
+            <CalculateResult data={data}/>
           </Col>
         </Row>
     </div>
