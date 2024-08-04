@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.9ce21819.css",
-    "main.js": "/static/js/main.de50ec05.js",
-    "static/js/453.ece5a82a.chunk.js": "/static/js/453.ece5a82a.chunk.js",
-    "index.html": "/index.html",
-    "main.9ce21819.css.map": "/static/css/main.9ce21819.css.map",
-    "main.de50ec05.js.map": "/static/js/main.de50ec05.js.map",
-    "453.ece5a82a.chunk.js.map": "/static/js/453.ece5a82a.chunk.js.map"
+    "main.css": "/dijkstra_vis/static/css/main.9ce21819.css",
+    "main.js": "/dijkstra_vis/static/js/main.7c2cabab.js",
+    "static/js/453.ece5a82a.chunk.js": "/dijkstra_vis/static/js/453.ece5a82a.chunk.js",
+    "index.html": "/dijkstra_vis/index.html",
+    "main.9ce21819.css.map": "/dijkstra_vis/static/css/main.9ce21819.css.map",
+    "main.7c2cabab.js.map": "/dijkstra_vis/static/js/main.7c2cabab.js.map",
+    "453.ece5a82a.chunk.js.map": "/dijkstra_vis/static/js/453.ece5a82a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9ce21819.css",
-    "static/js/main.de50ec05.js"
+    "static/js/main.7c2cabab.js"
   ]
 }
